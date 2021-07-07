@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>A Levels - Tudor Grange Academy Solihull | Riley Evans</title>
+    <meta name="description" content="An undergraduate student at University of Bristol">
+    <meta name="author" content="Riley Evans">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400|Merriweather+Sans:300,400&amp;display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../images/Favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56714744-6"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-56714744-6');
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <a href="../">
+            <h1>Riley Evans</h1></a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li>
+                    <a href="../">About</a>
+                </li>
+                <li>
+                    <a href="../projects/">Projects</a>
+                </li><!-- <li><a href="/" >Cricket</a></li> -->
+                <li>
+                    <a href="../contact/">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <div class="content" style="margin-top:100px;">
+        
+    </div>
+    <script>
+    var grid = jQuery('.columns').masonry({
+    itemSelector: '.column-item',
+    columnWidth: '.column-size',
+    gutter: 20
+    });
+    // layout Masonry after each image loads
+    grid.imagesLoaded().progress( function() {
+    grid.masonry('layout');
+    });
+    </script>
+</body>
+</html>

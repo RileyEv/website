@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="121px" height="121px" viewBox="0 0 121 121" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>icon_code</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs></defs>
+    <g id="About" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Portrait" sketch:type="MSArtboardGroup" transform="translate(-512.000000, -588.000000)">
+            <g id="design-+-ideas-+-code" sketch:type="MSLayerGroup" transform="translate(137.000000, 589.000000)">
+                <g id="code" transform="translate(376.000000, 0.000000)" sketch:type="MSShapeGroup">
+                    <circle id="Oval-1" stroke="#FFFFFF" stroke-width="2" cx="59.5" cy="59.5" r="59.5"></circle>
+                    <g id="Group-1415" transform="translate(33.000000, 38.000000)" fill="#FFFFFF">
+                        <path d="M26.857,0 L-0.143,13.97 L26.857,28.03 L53.857,13.97 L26.857,0 L26.857,0 Z M26.857,1.8 L50.391,13.98 L26.857,26.23 L3.324,13.98 L26.857,1.8 L26.857,1.8 Z" id="Fill-1411"></path>
+                        <path d="M46.342,19.86 L50.391,21.96 L26.857,34.21 L3.324,21.96 L7.373,19.86 L5.639,18.96 L-0.143,21.95 L26.857,36.02 L53.857,21.95 L48.076,18.96 L46.342,19.86" id="Fill-1413"></path>
+                        <path d="M46.357,27.86 L50.391,29.94 L26.857,42.2 L3.324,29.94 L7.357,27.86 L5.623,26.95 L-0.143,29.94 L26.857,44 L53.857,29.94 L48.092,26.95 L46.357,27.86" id="Fill-1414"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

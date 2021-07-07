@@ -1,0 +1,4 @@
+---
+title: "A Levels - Tudor Grange Academy Solihull"
+text: "A-Levels: Mathematics (A*), Further Mathematics (A*), Computer Science (A*) and Physics (A)"
+---

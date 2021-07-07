@@ -1,0 +1,6 @@
+---
+title: "Intern - CricViz"
+text: Developing models to allow for automatic detection of interesting statistics in cricket.
+image: /images/jobs/cricviz.jpeg
+link: http://www.cricviz.com
+---

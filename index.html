@@ -1,16 +1,34 @@
 ---
-title: Home
+title: About
 ---
-
-<h2>Welcome</h2>
-
-<img src="/images/haskell-logo.png" style="float: right; margin: 10px;" />
-
-<p>Welcome to my blog!</p>
-
-<p>I've reproduced a list of recent posts here for your reading pleasure:</p>
-
-<h2>Posts</h2>
-$partial("templates/post-list.html")$
-
-<p>…or you can find more in the <a href="/archive.html">archives</a>.</p>
+<div class="year about">
+    <div class="splitter">
+        <h2>About</h2>
+    </div>
+    <div class="columns">
+        <div class="column-size"></div>
+        <div class="column-item double-width">
+            <article>
+                <a>
+                    <div class="media-wrapper">
+                         <img src="images/me.jpeg" alt="Riley Evans">
+                    </div>
+                </a>
+                <div class="text-caption">
+                    <h3>About Me</h3>
+                    <hr>
+                    <p>
+                        I am an undergraduate students at the
+                        <a href="https://www.bristol.ac.uk">University of Bristol</a>
+                        , studying computer science.</p>
+                    <p>
+                        I have interests in: data science, cricket
+                        analytics and website design.
+                    </p>
+                </div>
+                <div style="clear:both"></div>
+            </article>
+        </div>
+        $partial("templates/job-list.html")$
+    </div>
+</div>

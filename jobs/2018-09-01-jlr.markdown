@@ -1,0 +1,6 @@
+---
+title: "Technical Analyst - Jaguar Land Rover"
+text: Prototyped an automated workflow for reporting on engineering data.
+image: /images/jobs/jlr.JPG
+link: https://www.jaguarlandrover.com
+---

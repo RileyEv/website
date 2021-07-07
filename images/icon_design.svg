@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="121px" height="121px" viewBox="0 0 121 121" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>icon_design</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs>
+        <path id="path-1" d="M-0.08,49.938 L49.92,49.938 L49.92,-0.062 L-0.08,-0.062 L-0.08,49.938 L-0.08,49.938 Z"></path>
+    </defs>
+    <g id="About" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Portrait" sketch:type="MSArtboardGroup" transform="translate(-136.000000, -590.000000)">
+            <g id="design-+-ideas-+-code" sketch:type="MSLayerGroup" transform="translate(137.000000, 589.000000)">
+                <g id="design" transform="translate(0.000000, 2.000000)">
+                    <circle id="Oval-1" stroke="#FFFFFF" stroke-width="2" sketch:type="MSShapeGroup" cx="59.5" cy="59.5" r="59.5"></circle>
+                    <g id="Group-2872" transform="translate(35.000000, 33.000000)">
+                        <mask id="mask-2" sketch:name="Clip 2871" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-2871"></g>
+                        <path d="M13.566,37.715 L13.566,32.023 L10.148,32.023 L34.736,7.437 L42.422,15.122 L19.826,37.716 L13.566,37.715 L13.566,37.715 Z M16.723,40.82 L6.543,45.299 L4.559,43.314 L8.818,33.634 L11.955,33.634 L11.955,39.325 L18.217,39.325 L16.723,40.82 L16.723,40.82 Z M47.561,9.984 L43.557,13.987 L35.871,6.302 L39.873,2.299 L47.561,9.984 L47.561,9.984 Z M39.896,0 L7.686,32.21 L-0.143,50 L17.648,42.172 L49.857,9.961 L39.896,0 L39.896,0 Z" id="Fill-2870" fill="#FFFFFF" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

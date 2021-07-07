@@ -1,0 +1,6 @@
+---
+title: Crickly
+image: /images/projects/crickly.jpg
+text: A simple Django app to store cricket matches.
+github: Crickly/crickly
+---

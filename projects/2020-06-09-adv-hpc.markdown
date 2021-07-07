@@ -1,0 +1,6 @@
+---
+title: "High Performance Computing: OpenCL"
+image: /images/projects/adv-hpc.png
+text: Running OpenCL code on a super computer. Created versions in C, Python and Haskell. Achieved a mark of 90%.
+github: RileyEv/Uni-HPC-OpenCL-Report
+---

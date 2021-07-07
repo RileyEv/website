@@ -1,0 +1,5 @@
+---
+title: "Intern - Blanc (now Dev Society)"
+text: Created a website for a client to display their art portfolio.
+link: https://www.dev.ngo
+---

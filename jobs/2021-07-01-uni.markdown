@@ -1,0 +1,5 @@
+---
+title: "Student - University of Bristol"
+text: Studying Computer Science MEng
+image: /images/jobs/bristoluni.png
+---

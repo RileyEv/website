@@ -40,7 +40,7 @@ jobs:
       run: |
         cabal run site build 
         cp -a ./docs ./html
-        echo "staging.rileyevans.co.uk" > ./html/CNAME
+        echo "www.rileyevans.co.uk" > ./html/CNAME
     - name: Publish Site
       if: github.event_name == 'push'
       uses: peaceiris/actions-gh-pages@v3

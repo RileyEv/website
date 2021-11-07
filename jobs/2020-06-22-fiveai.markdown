@@ -1,6 +1,6 @@
 ---
-title: "Intern Engineer - FiveAI"
-text: Created a dashboard to inspect the state of different self-driving missions.
+title: "Intern Engineer - Five"
+text: Created a dashboard to triage self-driving missions.
 image: /images/jobs/five.jpg
 link: https://five.ai/
 ---

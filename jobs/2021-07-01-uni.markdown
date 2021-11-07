@@ -1,5 +1,5 @@
 ---
 title: "Student - University of Bristol"
-text: Studying Computer Science MEng
+text: Studied Computer Science MEng and graduated with First Class (honours)
 image: /images/jobs/bristoluni.png
 ---

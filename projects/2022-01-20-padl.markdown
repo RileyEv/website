@@ -1,0 +1,5 @@
+---
+title: Practical Aspects of Declarative Languages (PADL) 2022
+text: Presenting CircuitFlow 
+github: RileyEv/CircuitFlow
+---

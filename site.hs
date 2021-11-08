@@ -1,10 +1,9 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
 import           Hakyll
 import           Text.Regex
 import           System.FilePath
-import           Data.List (groupBy, isInfixOf, isSuffixOf)
+import           Data.List (groupBy)
 
 
 config :: Configuration
@@ -26,14 +25,12 @@ main = hakyllWith config $ do
     match "projects/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            -- >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
   
     match "jobs/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            -- >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
 
@@ -46,8 +43,9 @@ main = hakyllWith config $ do
                         listFieldWith "articles" articleCtx
                             (return . snd . itemBody)
                     )
-                    (sequence $ fmap (\(y, is) -> makeItem (show y, is))
+                    (mapM (\(y, is) -> makeItem (show y, is))
                                                       projects) `mappend` constField "yearlen" (show (length projects)) `mappend` defaultContext
+
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/project-list.html" projectCtx
@@ -109,7 +107,7 @@ groupArticles = fmap merge . group . fmap tupelise
 
 -- Extracts year from article file name.
 articleYear :: FilePath -> Maybe Int
-articleYear s = fmap read $ fmap head $ matchRegex articleRx s
+articleYear s = read . head <$> matchRegex articleRx s
 
 cleanRoute :: Routes
 cleanRoute = customRoute createIndexRoute
@@ -119,33 +117,5 @@ cleanRoute = customRoute createIndexRoute
 
 ---
 
-
-articleRoute :: Routes
-articleRoute = customRoute makeR
-    where
-        makeR i  = shorten (toFilePath i) </> fileName (toFilePath i) </>
-                       "index.html"
-
-        fileName :: FilePath -> FilePath
-        fileName p = case (convertArticleFile . takeBaseName) p of
-                         Just np -> np
-                         Nothing -> error $ "[ERROR] wrong format: " ++ p
-        shorten    = joinPath . tail . splitPath . takeDirectory
-
--- Removes date part from article file name.
-convertArticleFile :: String -> Maybe String
-convertArticleFile f = fmap last $ matchRegex articleRx f
-
 articleRx :: Regex
 articleRx = mkRegex "^([0-9]{4})\\-([0-9]{2})\\-([0-9]{2})\\-(.+)$"
-
--- Replace url of the form foo/bar/index.html by foo/bar.
-removeIndexHtml :: Item String -> Compiler (Item String)
-removeIndexHtml item = return $ fmap (withUrls removeIndexStr) item
-    where
-        removeIndexStr :: String -> String
-        removeIndexStr url = case splitFileName url of
-                                (dir, "index.html") | isLocal dir -> dir
-                                _                                 -> url
-        isLocal :: String -> Bool
-        isLocal uri        = not (isInfixOf "://" uri)

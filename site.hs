@@ -21,6 +21,10 @@ main = hakyllWith config $ do
     match "CV.pdf" $ do
         route   idRoute
         compile copyFileCompiler
+        
+    match "papers/*.pdf" $ do
+        route   idRoute
+        compile copyFileCompiler
 
     match "css/*" $ do
         route   idRoute

@@ -12,14 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: haskell/actions/setup@v1
+    - uses: actions/checkout@v4
+    - uses: haskell-actions/setup@v2
       with:
         ghc-version: '8.10'
         cabal-version: 'latest'
 
     - name: Cache
-      uses: actions/cache@v1
+      uses: actions/cache@v3
       env:
         cache-name: cache-cabal
       with:
@@ -42,7 +42,7 @@ jobs:
         cp -a ./docs ./html
         echo "www.rileyevans.co.uk" > ./html/CNAME
     - name: Upload GitHub Pages artifact
-      uses: actions/upload-pages-artifact@v1.0.3
+      uses: actions/upload-pages-artifact@v3
       with:
         path: ./html
         

@@ -1,0 +1,6 @@
+---
+title: "Software Engineer - Cogna"
+text: Trying to get rid of my own job, building a code synthesis tool to deliver customised software for businesses.
+image: /images/jobs/cogna.png
+link: https://cogna.co
+---

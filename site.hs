@@ -4,6 +4,13 @@ import           Hakyll
 import           Text.Regex
 import           System.FilePath
 import           Data.List (groupBy)
+import           Data.Maybe (fromMaybe)
+import qualified Data.Text as T
+import           Data.Yaml (Value(..), decodeThrow)
+import qualified Data.Yaml as Yaml
+import qualified Data.Aeson.KeyMap as KM
+import qualified Data.Vector as V
+import qualified Data.ByteString.Char8 as BS
 
 
 config :: Configuration
@@ -56,7 +63,10 @@ main = hakyllWith config $ do
                             (return . snd . itemBody)
                     )
                     (mapM (\(y, is) -> makeItem (show y, is))
-                                                      projects) `mappend` constField "yearlen" (show (length projects)) `mappend` defaultContext
+                                                      projects) `mappend` 
+                    constField "yearlen" (show (length projects)) `mappend` 
+                    constField "title" "Projects" `mappend`
+                    defaultContext
 
 
             makeItem ""
@@ -86,6 +96,29 @@ main = hakyllWith config $ do
 
     match "templates/*" $ compile templateBodyCompiler
 
+    -- Recipe pages
+    match "recipes/*" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/recipe-item.html" recipeCtx
+            >>= loadAndApplyTemplate "templates/default.html" recipeCtx
+            >>= relativizeUrls
+
+    -- Recipe listing page
+    create ["recipes.html"] $ do
+        route cleanRoute
+        compile $ do
+            recipes <- recentFirst =<< loadAll "recipes/*"
+            let recipeListCtx = 
+                    listField "recipes" recipeCtx (return recipes) `mappend`
+                    constField "title" "Recipes" `mappend`
+                    defaultContext
+
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/recipe-list.html" recipeListCtx
+                >>= loadAndApplyTemplate "templates/default.html" recipeListCtx
+                >>= relativizeUrls
+
 
 --------------------------------------------------------------------------------
 postCtx :: Context String
@@ -101,6 +134,27 @@ articleCtx :: Context String
 articleCtx =
     dateField "date" "%B %e, %Y" <>
     defaultContext
+
+recipeCtx :: Context String
+recipeCtx =
+    dateField "date" "%B %e, %Y" <>
+    listFieldWith "ingredients" defaultContext getIngredients <>
+    listFieldWith "instructions" defaultContext getInstructions <>
+    metadataField <>
+    defaultContext
+  where
+    getIngredients :: Item a -> Compiler [Item String]
+    getIngredients = getListField "ingredients"
+    
+    getInstructions :: Item a -> Compiler [Item String]
+    getInstructions = getListField "instructions"
+    
+    getListField :: String -> Item a -> Compiler [Item String]
+    getListField field item = do
+        metadata <- getMetadata (itemIdentifier item)
+        case lookupStringList field metadata of
+            Nothing -> return []
+            Just xs -> mapM makeItem xs
 
 -- Groups article items by year (reverse order).
 groupArticles :: [Item String] -> [(Int, [Item String])]

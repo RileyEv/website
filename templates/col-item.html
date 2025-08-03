@@ -41,7 +41,7 @@
         {% endfor %}
       </p>-->
       <hr/>
-      <p>$text$</p>
+      <p>$if(text)$$text$$else$$if(description)$$description$$else$$body$$endif$$endif$</p>
     </div>
     <div style="clear:both"></div>
   </article>

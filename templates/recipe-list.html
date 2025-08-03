@@ -1,0 +1,13 @@
+
+
+<div class="year">
+    <div class="splitter">
+        <h2>Baking</h2>
+    </div>
+    <div class="columns">
+        <div class="column-size"></div>
+        $for(recipes)$
+            $partial("templates/recipe-col-item.html")$
+        $endfor$
+    </div>
+</div>

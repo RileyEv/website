@@ -107,8 +107,9 @@ groupArticles :: [Item String] -> [(Int, [Item String])]
 groupArticles = fmap merge . group . fmap tupelise
     where
         merge :: [(Int, [Item String])] -> (Int, [Item String])
-        merge gs   = let conv (year, acc) (_, toAcc) = (year, toAcc ++ acc)
-                     in  foldr conv (head gs) (tail gs)
+        merge [] = error "merge: empty list"  -- This should never happen in practice
+        merge (g:gs) = let conv (year, acc) (_, toAcc) = (year, toAcc ++ acc)
+                       in  foldr conv g gs
 
         group ts   = groupBy (\(y, _) (y', _) -> y == y') ts
         tupelise i = let path = (toFilePath . itemIdentifier) i
@@ -119,7 +120,11 @@ groupArticles = fmap merge . group . fmap tupelise
 
 -- Extracts year from article file name.
 articleYear :: FilePath -> Maybe Int
-articleYear s = read . head <$> matchRegex articleRx s
+articleYear s = case matchRegex articleRx s of
+    Just matches -> case matches of
+        (year:_) -> Just (read year)
+        _        -> Nothing
+    Nothing -> Nothing
 
 cleanRoute :: Routes
 cleanRoute = customRoute createIndexRoute

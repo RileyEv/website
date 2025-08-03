@@ -98,7 +98,7 @@ main = hakyllWith config $ do
 
     -- Recipe pages
     match "recipes/*" $ do
-        route $ setExtension "html"
+        route cleanRoute
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/recipe-item.html" recipeCtx
             >>= loadAndApplyTemplate "templates/default.html" recipeCtx
@@ -140,6 +140,7 @@ recipeCtx =
     dateField "date" "%B %e, %Y" <>
     listFieldWith "ingredients" defaultContext getIngredients <>
     listFieldWith "instructions" defaultContext getInstructions <>
+    cleanUrlField "url" <>
     metadataField <>
     defaultContext
   where
@@ -155,6 +156,23 @@ recipeCtx =
         case lookupStringList field metadata of
             Nothing -> return []
             Just xs -> mapM makeItem xs
+
+-- Helper function to create clean URLs without index.html
+cleanUrlField :: String -> Context a
+cleanUrlField key = field key $ \item -> do
+    route <- getRoute (itemIdentifier item)
+    return $ case route of
+        Nothing -> "/"
+        Just url -> toAbsolutePath $ cleanIndexUrl url
+  where
+    cleanIndexUrl url
+        | "/index.html" `T.isSuffixOf` T.pack url = 
+            T.unpack (T.dropEnd 11 (T.pack url)) ++ "/"
+        | otherwise = url
+    
+    toAbsolutePath url
+        | "/" `T.isPrefixOf` T.pack url = url
+        | otherwise = "/" ++ url
 
 -- Groups article items by year (reverse order).
 groupArticles :: [Item String] -> [(Int, [Item String])]

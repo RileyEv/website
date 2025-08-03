@@ -10,5 +10,10 @@ executable site
                   , regex-compat
                   , filepath
                   , commonmark >= 0.2.2 && < 1
+                  , yaml
+                  , text
+                  , aeson
+                  , vector
+                  , bytestring
   ghc-options:      -threaded
   default-language: Haskell2010

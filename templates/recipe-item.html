@@ -1,0 +1,39 @@
+---
+title: $title$
+---
+<div class="splitter">
+    <h2>$title$</h2>
+</div>
+
+$if(image)$
+<div class="recipe-photo-card">
+    <img src="$image$" alt="$title$">
+</div>
+$endif$
+
+<div class="recipe-ingredients-card">
+    <h3>Ingredients</h3>
+    <ul class="ingredients-list">
+        $for(ingredients)$
+        <li class="ingredient-item">$body$</li>
+        $endfor$
+    </ul>
+</div>
+
+<div class="recipe-instructions-card">
+    <h3>Instructions</h3>
+    <ol>
+        $for(instructions)$
+        <li>$body$</li>
+        $endfor$
+    </ol>
+</div>
+
+
+
+$if(notes)$
+<div class="notes-section">
+    <h3>Notes</h3>
+    <p>$notes$</p>
+</div>
+$endif$
